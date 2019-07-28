@@ -1,0 +1,57 @@
+body {
+    width: 90%;
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 150%;
+}
+
+a {
+    color: black;
+    /* padding: 0.5em 0.5em 0.5em 0.5em; */
+}
+
+li {
+    padding-left: 0.5em;
+    padding-bottom: 0.3em;
+}
+
+
+#meinTitel {
+  background-color: goldenrod;
+  color: black;
+  padding: 40px;
+  /* text-align: center; */
+} 
+
+figure {
+  position: relative;
+  margin: 0em;
+  padding: 10px;
+  width: 30%;
+  background: white;
+  /* border: 1px solid gainsboro; */
+}
+
+figcaption {
+  padding: 10px;
+  text-align: center;
+  font-size: 70%;
+  width: 60%;
+}
+
+#footer {
+   position: fixed;
+   bottom: 0;
+   width: 90%;
+   height: 2em;
+   background-color: goldenrod;
+   color: black;
+   text-align: center;
+   padding-bottom: 10px;
+   font-size: 50%;
+}
+
+#space {
+  color: white;
+  background-color: white;
+}
