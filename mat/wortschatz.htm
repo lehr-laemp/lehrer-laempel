@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8" autor = "Hansruedi Meyer">
+    <title>Wortschatz</title>
+
+    <style>
+        body {
+            background-color:  white;
+            font-family: sans-serif;
+            font-size: 20px;
+            line-height: 1.4;
+            padding: 2px
+            }
+
+        h1 {
+            font-size: 200%;
+            font-family: sans-serif;
+            }
+
+        p {
+            font-family: sans-serif;
+            font-size: 20px;
+            width: 70%;
+
+            }
+
+        textarea {
+            width: 70%;
+            height: 5cm;
+            padding: 8px 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            }
+        
+        input[type=text] {
+            width: 20%;
+            padding: 8px 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            }
+        
+        input[type=button] {
+            background-color: lightgray;
+            border: none;
+            color: black;
+            padding: 8px 8px;
+            text-decoration: none;
+            margin: 8px 2px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        a:link, a:visited {
+            background-color: lightgray;
+            color: black;
+            padding: 2px 5px;
+            text-align: center;
+            text-decoration: underline;
+            display: inline-block;
+            }
+
+        a:hover, a:active {
+            background-color: lightgray;
+            }
+        
+        
+    </style>
+    
+    
+  
+  </head>
+  
+  <body>
+    <h1>Wortschatz überprüfen</h1>
+
+    <p id="hilfe">
+       
+    </p>
+    
+    <p id="ausgabe">
+       
+    </p>
+        
+     <!-- Text eingeben -->
+    <textarea id="textfeld" placeholder="Dein Text ..." oninput="rechnen()" >
+        
+    </textarea>
+    <br>
+    <input type='button' value='löschen' onclick='löschen()'>  
+
+    
+    <p id="Zahlen">
+        
+    <p>
+    
+
+    <!-- ******* script ************************ -->
+    <script>
+
+        // Global Variable für Ausgabe des Resultates
+
+        var WORTSCHATZ = " bei bis da dann das dass dem den denn der des dein deine deiner deines deinen deinem dich dir die diese diesen dieses dieser doch du durch ein eine einem einen einer eines einzelnen er es für ganz hier hin her ich ihm ihn ihnen ihr ihre im in ins man mehr mein meine meiner meinen meines meinem mich mir mit nach nicht noch nun nur oder ohne schon sehr sein seine seinen seiner seinem selbst sich sie so über um und uns unser unsere unseren unter vom von vor was welche welchen welches welcher wenn wie wieder wir wo zu zum zur " + "<br> <br>" + 
+        //
+        // a
+        " ab Abend Abende Abenden aber acht Affe Affen ähnlich ähnliche ähnlichen ähnliches alle allen alles allem allein alleine allerdings als also alt alte alter altem alten älter älterem älteren ältere am an andere anders anderen ändern ändere änderst ändert änderte geändert geänderte geänderten Anfang Anfänge Anfängen anfangen angefangen angefangene angefangenen Angst Ängste ängstlich ängstliche ängstlichen ängstlicher ankommen angekommen angekommene angekommenen Antwort Antworten antworten antworte antwortest antwortest antwortet antwortete antworteten geantwortet anziehen angezogen angezogene angezogenen Apfel Äpfel Äpfeln Arbeit Arbeiten arbeiten arbeite arbeitest arbeitet arbeitete arbeiteten gearbeitet gearbeitete gearbeiteten Arm Arme Armen Arzt Ärzte Ärzten Ast Äste Ästen auch auf Aufgabe Aufgben aufräumen aufgeräumt aufgeräumte aufgeräumten Auge Augen aus aussen ausser Auto Autos " + "<br> <br>" + 
+        //
+        // b
+        " backen backe bäckst bäckt backte backten gebacken gebackene gebackenen Bäcker Bäckerei baden bade badest badet badete badeten gebadet gebadete gebadeten Bahn Bahnen bald Ball Bälle Bällen Bank Banken Bänke Bänken Bär Bären Bauch Bäuche Bäuchen bauen baue baust baut baute bauten gebaut gebaute gebauten Bauer Bauern Baum Bäume Bäumen bedeuten bedeute bedeutest bedeutet bedeutete bedeuteten Beginn beginnen beginne beginnst beginnt begann begannen begonnen bei beide Bein Beine Beispiel Bespiele Beispielen beissen beisse beisst beisst biss bissen gebissen bekannt bekannte bekannten bekanntes bekommen bekomme bekommst bekommt bekam bekamen beobachten beobachte beobachtest beobachtet beobachetete beobachteten bequem bequemer bequeme bequemen bereit Berg Berge Bergen Bericht Berichte Berichten berichten berichte berichtest berichtet berichtete berichteten Beruf Berufe Berufen besonders besser bessere besseren besten beste bestehen bestehe bestehst besteht bestand bestanden Besucher Besuchern Bett Betten bevor bewegen bewege bewegst bewegt bewegte bewegten bezahlen bezahle bezahlst bezahlt bezahlte bezahlten biegen biege biegst biegt bog bogen gebogen Biene Bienen Bild Bildern Bilder sind wart gewesen Birne Birnen bis bisher bisschen bitten bitte bittest bittet bat baten gebeten Blatt Blätter Blättern blau blaue blauen bleiben bleibe bleibst bleibt blieb blieben geblieben Blick Blicke Blicken blicken blicke blickst blickt blickte blickten geblickt blind blinde blinden Blinde Blinden Blitz Blitze Blitzen blitzen blitzt blitzte geblitzt Block Blöcke Blöcken bloss blühen blühe blühst blüht blühte blühten geblüht Blume Blumen Boden Böden bohren bohre bohrst bohrt bohrte bohrten gebohrt gebohrte gebohrten Boot Boote Booten böse bösen boxen boxe boxst boxt boxte boxten geboxt Boxer Brand Brände Bränden brauchen brauche brauchst braucht brauchte brauchten gebraucht gebrauchte gebrauchten braun braune braunen brav brave braven brennen brenne brennst brennt brannte brannten gebrannt gebrannte gebrannten Brief Briefe Briefen Brille Brillen bringen bringe bringst bringt brachte brachten gebracht gebrachte gebrachten Brot Brote Broten Brötchen Brücke Brücken Bruder Brüder Brüdern Buch Bücher Büchern bunt bunte bunten bunter buntern Busch Büsche Büschen " + "<br> <br>" +
+        //
+        // c und d
+        " Clown Clowns Computer Computern der die das den dem denen da dabei dafür dagegen damals damit danach danken danke dankst dankt dankte dankten gedankt dann darauf darum darunter davon dazu Decke Decken denken denke denkst denkt dachte dachten gedacht gedachte gedachten dennoch deshalb dessen deutlich deutliche deutlichen deutlicher deutlichere deutlicheren dick dicke dicken dicker dickere dickeren Dienstag dies diese dieser diesen dieses Ding Dinge Dingen doch Donner donnern donnert donnerte gedonnert Donnerstag Dorf Dörfer Dörfern dort Draht Drähte draussen Dreck dreckig dreckige dreckigen drehen drehe drehst dreht drehte drehten gedreht gedrehte gedrehten drei drücken drücke drückst drückt drückte drückten gedrückt gedrückte gedrückten Druck dumm dumme dummen dümmer dümmere dümmeren Dummheit dunkel dunkle dunklen dunkler dunklere dunkleren dünn dünne dünnen dünner dünnere dünneren durch dürfen darf darfst durfte durften gedurft Durst durstig durstige durstigen " + "<br> <br>" +
+        //
+        // e
+        " Ecke Ecken ehrlich ehrliche ehrlichen Ei Eier Eiern eigene eigenen eigentlich einfach einfache einfachen einige einigen einmal eins ein eine einer eines einem einen einst einzige einzigen Eis Elefant Elefanten elf Eltern Ende Enden endlich eng enge engen enger engere engeren entdecken entdecke entdeckst entdeckt entdeckte entdeckten entfernen entferne entfernst entfernt entfernte entfernten entgegen entscheiden entscheide entscheidest entscheidet entschied entschieden Entwicklung Entwicklungen er Erde Erden erhalten erhalte erhälst erhält erhielt erhielten erhaltene erhaltenen erklären erkläre erklärst erklärt erklärte erklärten erlauben erlaube erlaubst erlaubt erlaubte erlaubten Erlaubnis erleben erlebe erlebst erlebt erlebte erlebten erschrecken erschrecke erschreckst erschreckt erschrak erschraken erschrocken erschrockene erschrockenen erst ersten erste erwarten erware erwartest erwartet erwartete erwarteten erzählen erzähle erzählst erzählt erzählte erzählten Erzählung Erzählungen es essen esse isst ass assen gegessen gegessene gegessenen Essen etwas etwa Eule Eulen Europa " + "<br> <br>" +
+        //
+        // f
+        " fahren fahre fährst fährt fuhr fuhren gefahren gefahrene gefahrenen Fahrrad Fahrräder Fahrrädern Fall Fälle Falle Fallen fallen falle fällst fällt fiel fielen gefallen gefallene gefallenen Familie Familien fangen fange fängst fängt fing fingen gefangen gefangene gefangenen fast fehlen fehle fehlst fehlt fehlte fehlten gefehlt Fehler Fehlern fein feine feiner feinen feinere feineren Feld Felder Feldern Fenster Fentern Ferien Fernseher fertig fertige fertigen fertiger fest feste fester festen festere festeren fett fette fetter fetten fettere fetteren Fett feucht feuchte feuchter feuchten Feuer Film Filme Filmen finden finde findest findet fand fanden gefunden gefundene gefundener gefundenen Finger Fingern Fische Fischen Flasche Flaschen fleissig fleissige fleissiger fleissigen fliegen fliege fliegst fliegt flog flogen geflogen geflogene geflogener geflogenen fliessen fliesse fliesst fliesst floss flossen geflossen geflossene geflossenen Flügel Flügeln Flugzeug Flugzeuge Flugzeugen Fluss Flüsse Flüssen flüssig flüssige flüssigen flüssiger Form Formen formen forme formst formt formte formten Frage Fragen fragen frage fragst fragt fragte fragten gefragt gefragte gefragter gefragten Frau Frauen frei freie freier freien Freiheit Freitag fremd fremde fremder fremden Fremde Fremden fressen fresse frisst frisst frass frassen gefressen gefressene gefressener gefressenen Freunde freuen freue freust freut freute freuten gefreut Freund Freunde Freunden Freundin Freundinnen Friede Frieden friedlich friedliche friedlicher friedlichen frieren friere frierst friert fror froren gefroren gefrorene gefrorenes gefrorener gefrorenen frisch frische frischer frischen fröhlich fröhliche fröhliches fröhlicher fröhlichen Frucht Früchte Früchten früh frühe früher frühes frühen Frühling fühlen fühle fühlst fühlt fühlte fühlten gefühlt gefühlte gefühltes gefühlten führen führe führst führt führte führten geführt füllen fülle füllst füllt füllte füllten gefüllt gefüllte gefüllten fünf für Fuss Füsse Füssen Fussball Fussbälle Fussbällen " + "<br> <br>" +
+        //
+        // g
+        " ganz gar Garten Gärten Gebäude Gebäuden geben gebe gibst gibt gab gaben gegeben Geburtstag Geburtstage Geburtstagen Gefahr Gefahren gefährlich gefährliche gefährlichen gefährlicher gefährliches gegen geheim geheime geheimen geheimes geheimer Geheimnis Geheimnisse Geheimnissen gehen gehe gehst geht ging gingen gegangen gehören gehöre gehörst gehört gehörte gehörten gelb gelbe gelbes gelber gelben Geld Gelder gemeinsam gemeinsame gemeinsamer gemeinsames gemeinsamen Gemüse Gemüsen genau genaue genauer genaues genauen genug gerade gern gerne Geschäft Geschäfte Geschäften Geschenk Geschenke Geschenken Geschichte Geschichten Gesetz Gesetze Gesetzen Gesicht Gesichter Gesichtern Gespräch Gespräche Gesprächen gestern gesund gesunde gesunder gesundes gesunden gewinnen gewinne gewinnst gewinnt gewann gewannen gewonnen gewonnene gewonnenen gewonnener Gewitter Gewittern giessen giesse giesst giesst goss gossen gegossen gegossene gegossenen Glas Gläser Gläsern glatt glatte glatter glattes glatten glätter glauben glaube glaubst glaubt glaubte glaubten geglaubt gleich gleiche gleiches gleicher gleichen Glück glücklich glückliche glückliches glücklicher glücklichen glühen glühe glühst glüht glühte glühten geglüht Gott Götter Göttern Gras Gräser Gräsern gross grosse grosses grosser grossen grösser grössere grösseres grösseren Grösse Grössen grün grüne grünes grüner grünen Gruppe Gruppen grüssen grüsse grüsst grüsste grüssten gegrüsst gut gute guter gutes guten besser bessere besseres besserer besseren besten " + "<br> <br>" +
+        //
+        // h
+        " Haar Haare Haaren haben habe hast hat hatte hatten gehabt halb halbe halber halbes halben Hälfte Hälften Hals Hälse Hälsen halten halte hälst hält hielt hielten gehalten Hand Hände Händen Handy Handys hängen hänge hängst hängt hängte hängten hing hingen gehängt hart harte harter hartes harten härter Hase Hasen häufig häufige häufiger häufigen häufiges Haufen Haus Hause Häuser Häusern Haut Häute Häuten heiss heisse heisser heisses heissen heisst heisst hiess hiessen geheissen heizen heize heizest heizt heizte heizten geheizt geheizte geheizter geheiztes geheizten Heizung helfen helfe hilfst hilft half halfen geholfen hell helle heller helles hellen heraus Herbst Herr Herren Herrn heute Hexe Hexen hier Hilfe Hilfen Himmel Himmeln hinaus hinein hinter hoch hohe hohes hoher hohen höher höhere höherer höheren höchsten hoffen hoffe hoffst hofft hoffte hofften gehofft hoffentlich Höhe Höhen hohl hohle hohler hohles hohlen Höhle Höhlen holen hole holst holt holte holten geholt Holz Hölzer Hölzern hören höre hörst hört hörte hörten gehört Hose Hosen Hund Hunde Hunden hundert Hunger hungrig hungrige hungrigen hungriges hungriger Hut Hüte Hüten Hütte Hütten "  + "<br> <br>" +
+        //
+        // i und j 
+        " ich Idee Ideen Igel ihm ihn ihr ihren ihre immer Information Informationen interessieren interessiere interessierst interessiert interessierte interessierten ja Jahr Jahre Jahren jede jeder jedes jeden jedem jemand jemanden jetzt Jugend jugendlich jugendliche jugendlicher jugendliches jugendlichen jung junge junges junger jungen jünger jüngere jüngeren jüngerer Junge Jungen " + "<br> <br>" +
+        //
+        // k
+        " Käfer Kaffee Käfig Käfige Käfigen Kalender kalt kalte kalter kaltes kalten kälter kältere kälteren Kampf Kämpfe Kämpfen kaputt kaputte kaputter kaputtes kaputten Katze Katzen kaufen kaufe kaufst kauft kaufte kauften gekauft gekaufte gekaufter gekauften gekauftes kaum kein keine keiner keines keinen keinem kennen kenne kennst kennt kannte kannten gekannt Kiefer Kiefern Kind Kinder Kindern Kirche Kirchen klar klare klares klarer klaren Klasse Klassen Kleid Kleider Kleidern klein kleine kleiner kleines kleinen kleinere kleineres klettern klettere kletterst klettert kletterte kletterten geklettert knapp kochen koche kochst kocht kochte kochten gekocht gekochte gekochter gekochtes gekochten kommen komme kommst kommt kam kamst kamen gekommen können kann kannst könnt konnte konnten gekonnt Kopf Köpfe Köpfen Körper Körpern Kraft Kräfte Kräften kräftig kräftige kräftiger kräftiges kräftigen krank kranke krankes kranker kranken Kraut Kräuter Kräutern Kreis Kreise Kreisen Kreuz Kreuze Kreuzen kreuzen kreuze kreuzst kreuzt kreuzte kreuzten gekreuzt Kreuzung Kreuzungen kriechen krieche kriechst kriecht kroch krochen gekrochen Krieg Kriege Kriegen Küche Küchen Kuh Kühe Kühen kühl kühle kühles kühler kühlen Kunst Künste Künsten kurz kurze kurze kurzer kurzes kurzen kürzer Kuss Küsse küssen küsse küsst küsste küssten " + "<br> <br>" +
+        //
+        // l
+        " lachen lache lachst lacht lachte lachten gelacht Land Länder Ländern lang lange langes langer langen länger langsam langsame langsamer langsames langsamen Lärm lassen lasse lasst liess liessen gelassen laufen laufe läufst läuft lief liefen gelaufen laut laute lautes lauter lauten leben lebe lebst lebt lebte lebten gelebt Leben leer leere leeren leeres leerer legen lege legst legt legte legten gelegt gelegte gelegten gelegtes gelegter Lehrer Lehrern Lehrerin Lehrerinnen leicht leichte leichter leichtes leichten leise leises leiser leisen lernen lerne lernst lernt lernte lernten gelernt lesen lese liest liest las lasen gelesen letzte letzter letzes letzten leuchten leuchte leuchtest leuchtet leuchtete leuchteten geleuchtet Leute Leuten Licht  Lichter Lichtern lieben liebe liebst liebt liebte liebten geliebt geliebte geliebter geliebtes geliebten Lied Lieder Liedern liegen liege liegst liegt lag lagen gelegen links Loch Löcher Löchern Löffel Löffeln Lohn Löhne Löhnen los Lösung Lösungen Luft lustig lustige lustiges lustiger lustigen " + "<br> <br>" +
+        //
+        // m
+        " machen mache machst macht machte machten gemacht gemachte gemachten gemachter gemachtes Mädchen malen male malst malt malte malten gemalt gemaltes gemalte gemalter gemalten Mann Männer Männern Maschine Maschinen Maus Mäuse Mäusen Meer Meere Meeren mehr meisten mehrere mehreren meinen meine meinst meint meinte meinten gemeint Mensch Menschen merken merke merkst merkt merkte merkten gemerkt messen messe misst mass massen gemessen Messer Messern Meter Metern Miete Mieten mieten miete mietest mietet mietete mieteten gemietet Milch Million Millionen mindestens Minute Minuten Mittag Mittage Mittagen Mitte Mitten Mittel Mitteln Mittwoch mixen mixe mixt mixte mixten gemixt mögen mag magst mochte mochten gemocht möglich mögliche möglicher mögliches möglichen Möglichkeit Möglichkeiten Monat Monate Monaten Montag Moos Moose morgen Morgen müde müden müder müdes Müll Mülleimer Mülleimern Mund Münder Mündern Musik müssen muss musst musste mussten gemusst Mutter Mütter Müttern " + "<br> <br>" +
+        //
+        // n
+        " nach nachdem nachher nächste nächstes nächster nächsten Nacht Nächte Nächten Nähe nahe nähen nähe nähst näht nähte nähten genäht Name Namen nämlich Nase Nasen nass nasse nasser nasses nassen nässer Natur natürlich Nebel Nebeln neben nehmen nehme nimmst nimmt nahm nahmen genommen  nein nennen nenne nennst nennt nannte nannten genannt neu neue neuer neues neuen neun nicht nichts nie niemand niemanden niemals noch Nummer Nummern nun nur Nuss Nüsse Nüssen nützen nütze nützt nützte nützen genützt nützlich nützliche nützliches nützlicher nützlichen " + "<br> <br>" +
+        //
+        // o
+        " oben Obst oder offen offene offenes offener offenen öffnen öffne öffnest öffnet öffnete öffneten geöffnet oft ohne Ohr Ohren Oma Omas Onkel Onkeln Opa Opas Ort Orte Orten Ostern " + "<br> <br>" +
+        //
+        // p und q
+        " Paar Paare Paaren packen packe packst packt packte packten gepackt Paket Pakete Paketen Papier Papiere Papieren Pass Pässe Pässen Pferd Pferde Pferden pflanzen pflanze pflanzst pflanzt pflanzte pflanzten gepflanzt gepflanzte gepflanzter gepflanzten gepflanztes Pilz Pilze Pilzen Platz Plätze Plätzen plötzlich Polizei Polizist Polizisten Preis Preise Preisen Problem Probleme Problemen Punkt Punkte Punkten Puppe Puppen Quadrat Quadrate Quadraten quälen quäle quälst quält quälte quälten gequält Quelle Quellen " + "<br> <br>" +
+        //
+        // r
+        " Rad Räder Rädern Radio Radios raten rate rätst rät riet rieten geraten Rätsel Rätseln Raum Räume Räumen Raupe Raupen rechnen rechne rechnest rechnet rechnete rechneten gerechnet recht Recht rechts reden rede redest redet redete redeten geredet Rede Reden Regen Reh Rehe Rehen reich reiche reiches reicher reichen Reichtum reisen reise reist reiste reisten gereist reiten reite reitest reitet ritt ritten geritten rennen renne rennst rennt rannte rannten gerannt Richter Richtern richtig richtige richtiges richtiger richtigen Richtung riechen rieche riechst riecht roch rochen gerochen Rock Röcke Röcken rollen rolle rollst rollt rollte rollten gerollt rot rote roter rotes roten Rücken rufen rufe rufst ruft rief riefen gerufen ruhig ruhige ruhiger ruhiges ruhigen Ruhe rühren rühre rührst rührt rührte rührten gerührt rund runde rundes runder runden " + "<br> <br>" +
+        //
+        // s
+        " Sache Sachen Saft Säfte Säften sagen sage sagst sagt sagte sagten gesagt Salz Salze sammeln sammle sammelst sammelt sammelte sammelten gesammelt Samstag Sand satt satte satter sattes satten Satz Sätze Sätzen schaffen schaffe schaffst schafft schuf schufen geschaffen Schall schalten schalte schaltest schaltet schaltete schalteten geschaltet scharf scharfe scharfes scharfer scharfen schärfer Schatten schauen schaue schaust schaut schaute schauten geschaut scheinen scheine scheinst scheint schien schienen geschienen schenken schenke schenkst schenkt schenkte schenkten geschenkt geschenkte geschenkter geschenktes geschenkten Schere Scheren schicken schicke schickst schickt schickte schickten geschickt schieben schiebe schiebst schiebt schob schoben geschoben schief schiefe schiefes schiefer schiefen Schiff Schiffe Schiffen schimpfen schimpfe schimpfst schimpft schimpfte schimpften geschimpft schlafen schlafe schläfst schläft schlief schliefen geschlafen schlagen schlage schlägst schlägt schlug schlugen geschlagen schlecht schlechte schlechter schlechtes schlechten schliessen schliesse schliesst schloss schlossen geschlossen schliesslich schlimm schlimme schlimmer schlimmes schlimmen Schluss Schlüsse Schlüssen Schlüssel Schlüsseln schmecken schmecke schmeckst schmeckt schmeckte schmeckten geschmeckt Schmetterling Schmetterlinge Schmetterlingen Schmutz schmutzig schmutzige schmutziges schmutziger schmutzigen Schnee schneiden schneide schneidest schneidet schnitt schnitten geschnitten geschnittene geschnittenes geschnittener geschnittenen schnell schnelle schnelles schneller schnellen schon schön schöne schönes schöner schönen Schreck Schrecken schrecklich schreckliche schrecklicher schrecklichen schreckliches schreiben schreibe schreibst schreibt schrieb schrieben geschrieben schreien schreie schreist schreit schrie schrien geschrien Schritt Schritte Schritten Schuh Schuhe Schuhen Schule Schulen Schüler Schülern Schülerin Schülerinnen schützen schütze schützest schützt schützte schützten geschützt schwarz schwarze schwarzer schwarzes schwarzen schweigen schweige schweigst schweigt schwieg schwiegen geschwiegen schwer schwere schweres schwerer schweren Schwester Schwestern schwierig schwierige schwieriges schwieriger schwierigen Schwierigkeit Schwierigkeiten schwimmen schwimme schwimmst schwimmt schwamm schwammen geschwommen sechs See Seen sehen sehe siehst sieht sah sahen gesehen sehr Seife Seifen sein seine seiner seines seinem seinen bin bist ist seid seit war warst waren gewesen Seite Seiten Sekunde Sekunden selbst selber selben selbe selbes setzen setze setzt setzte setzten gesetzt sicher sichere sicheren sicherer sicheres Sicherheit sieben Sieg Siege Siegen singen singe singst singt sang sangen gesungen sitzen sitze sitzt sass sassen gesessen Skizze Skizzen sofort sogar Sohn Söhne Söhnen Soldat Soldaten sollen soll sollst sollte sollten gesollt Sommer Sommern sondern Sonne Sonnen Sonntag sonst sowie Spagetti sparen spare sparst spart sparte sparten gespart Spass Spässe Spässen spät späte spätes später späten spazieren spaziere spaziert spazierte spazierten Spiegel Spiegeln spiegeln spiegle spiegelst spiegelt spiegelte spiegelten gespiegelt spielen spiele spielst spielt spielte spielten gespielt Spiel Spiele Spielen Spitze Spitzen spitzig spitzige spitziger spitziges spitzigen Sport Sprache Sprachen sprechen spreche sprichst spricht sprach sprachen gesprochen springen springe springst springt sprang sprangen gesprungen Stadt Städte Städten Stamm Stämme Stämmen Stange Stangen stark starke starker starkes starken stärker Stärke Stärken statt statt stehen stehe stehst steht stand standen gestanden steigen steige steigst steigt stieg stiegen gestiegen Stein Steine Steinen Stelle Stellen stellen stelle stellst stellt stellte stellten gestellt Steuer Steuern Stiefel Stiefeln Stift Stifte Stiften still stille stilles stillen stiller Stille Stimme Stimmen Stirn Stoff Stoffe Stoffen Strand Strände Stränden Strasse Strassen Strauch Sträucher Sträuchern Strauss Sträusse Sträussen steiten streite streitest streitet stritt stritten gestritten Stück Stücke Stücken Stuhl Stühle Stühlen Stunde Stunden Sturm Stürme Stürmen stürmisch stürmische stürmisches stürmischer stürmischen suchen suche suchst sucht suchte suchten gesucht gesuchte gesuchten gesuchter gesuchtes süss süsse süsser süsses süssen Süssigkeit Süssigkeiten " + "<br> <br>" +
+        //
+        // t
+        " Tag Tage Tagen Tanne Tannen Tante Tanten Tasche Taschen Tasse Tassen tausend tausende Taxi Taxis Technik Techniken Tee Tees Teil Teile Teilen Telefon Telefone Telefonen Teller Tellern Text Texte Texten Theater Theatern tief tiefe tiefes tiefer tiefen Tiefe Tiefen Tier Tiere Tieren Tisch Tische Tischen Tochter Töchter Töchtern Tod Tode töten töte tötest tötet tötete töteten getötet tot totes toter tote toten tragen trage trägst trägt trug trugen getragen Träne Tränen Traum Träume Träumen traurig traurige traurigen trauriger trauriges treffen treffe triffst trifft traf trafen getroffen treu treue treues treuer treuen Treue trinken trinke trinkst trinkt trank tranken getrunken trocken trockene trockenes trockener trockenen Trockenheit tun tue tust tut tat taten getan Tür Türe Türen turnen turne turnst turnt turnte turnten geturnt " + "<br> <br>" +
+        //
+        // u
+        " üben übe übst übt übte übten geübt über überall überhaupt überqueren überquere überquerst überquert überquerte überquerten Uhr Uhren umkehren kehre um kehrst kehrt kehrte kehrten umgekehrt ungefähr unten unter Unterricht unterrichten unterrichte unterrichtest unterrichtet unterrichtete unterrichteten " + "<br> <br>" +
+        //
+        // v
+        " Vase Vasen Vater Väter Vätern Verbot Verbote Verboten verbieten verbiete verbietest verbietet verbot verboten  verbrauchen verbrauche verbrauchst verbraucht verbrauchte verbrauchten verbrennen verbrenne verbrennst verbrennt verbrannte verbrannten verbrannt Verein Vereine Vereinen vergessen vergesse vergisst vergass vergassen vergessen Vergleich Vergleiche Vergleichen vergleichen vergleiche vergleichst vergleicht verglich verglichen verhindern verhindere verhinderst verhindert verhinderte verhinderten verkaufen verkaufe verkaufst verkauft verkaufte verkauften verkaufte verkauftes verkauften verkaufter verlassen verlasse verlässt verliess verliessen verlezten verletze verletzt verletzte verletzten verlieren verliere verlierst verliert verlor verloren verpacken verpacke verpackst verpackt verpackte verpackten verschieden verschiedene verschiedenes verschiedener verschiedenen verschmutzen verschmutze verschmutzt verschmutzte verschmutzten verstecken verstecke versteckst versteckt versteckte versteckten verstehen verstehe verstehst versteht verstand verstanden versuchen versuche versuchst versucht versuchte versuchten viel viele vieler vieles vielen vielleicht vier Vogel Vögel Vögeln voll volle voller volles vollen völlig vorsichtig vorsichtige vorsichtiger vorsichtiges vorsichtigen Vorsicht " + "<br> <br>" +
+        //
+        // w
+        " wachsen wachse wächst wuchs wuchsen gewachsen Wagen Wahl Wahlen wählen wähle wählst wählt wählte wählten gewählt wahr wahre wahres wahrer wahren Wahrheit während Wald Wälder Wäldern warm warme warmes warmer warmen wärmer warten warte wartest wartet wartete warteten gewartet warum waschen wasche wäscht wusch wuschen gewaschen gewaschene gewaschener gewaschenes gewaschenen Wasser Wassern wechseln wechsle wechselst wechselt wechselte wechselten gewechselt Weg Wege Wegen wegen Weihnacht Weihnachten weil weinen weine weinst weint weinte weinten geweint weiss weisse weisses weisser weissen weit weite weiter weites weiten welche welchen welcher welches Welt Welten wenig weiniger weinige weiniges wenigen wenn werden werde wirst wird werdet wurde wurden geworden werfen werfe wirfst wirft warf warfen geworfen Werk Werke Werken Wetter Wettern wichtig wichtige wichtiges wichtiger wichtigen wieder wider wiegen wiege wiegst wiegt wog wogen gewogen Wiese Wiesen wild wilde wilder wildes wilden Wind Winde Winden Winter wirklich wirkliche wirkliches wirklicher wirklichen Wirklichkeit wissen weiss weisst weiss wusste wussten gewusst wo woher wohin Woche Wochen wohl wohnen wohne wohnst wohnt wohnte wohnten gewohnt Wohnung Wohnugen wollen will willst wollte wollten gewollt Wort Worte Worten wünschen wünsche wünscht wünschte wünschten gewünscht gewünschte gewünschten gewünschter gewünschtes Wurzel Wurzeln " + "<br> <br>" +
+        //
+        // z
+        " Zahl Zahlen Zahn Zähne Zähnen zehn zeichnen zeichne zeichnest zeichnet zeichnete zeichneten gezeichnet gezeichnete gezeichneten gezeichneter zeigen zeige zeigst zeigt zeigte zeigten gezeigt gezeigte gezeigten gezeigter gezeigtes Zeiger Zeigern Zeit Zeiten Zeitung Zeitungen Zeugnis Zeugnisse Zeugnissen ziehen ziehe ziehst zieht zog zogen gezogen Ziel Ziele Zielen zielen ziele zielst zielt zielte zielten gezielt Zimmer Zimmern Zucker Zug Züge Zügen Zukunft zum zur zurück zusammen Zuschauer Zuschauern zwar zwei zwischen zwölf ";
+
+
+        var wortschatz = WORTSCHATZ.toLowerCase();
+
+        var HilfeText = "&#9679; Die Wörter, die nicht im Grundwortschatz sind, werden gelb markiert. <br>" +
+                        "&#9679; Dieser Grundwortschatz hat etwa 1000 Wörter. <br>" +
+                        "&#9679; Einige Wortformen können fehlen.";
+		
+
+        // Focus auf input-Feld
+        window.onload = function() {
+            document.getElementById("textfeld").focus();
+            document.getElementById("textfeld").value = "";
+            // Hilfe anzeigen
+            document.getElementById("hilfe").innerHTML = HilfeText; 
+            
+        };
+
+// ============================================================================
+        // die ganze Berechnung starten
+        function rechnen () {
+
+            // Hilfe löschen
+            document.getElementById("hilfe").innerHTML = ""; 
+
+            // Variablen definieren
+            var WortTrenn1 = 0;
+            var WortTrenn2 = 0;
+            var TestWort = "";
+            var TestWortOhne = ""; // ohne Satztzeichen
+            var Suche = 0;
+            var AusgabeWort = "";
+            var WortAnzahl = 0; var WortLange = 0;
+            
+
+            // eingabe holen
+            var eingabe = document.getElementById("textfeld").value;
+            //console.log ("eingabe: " + eingabe);
+
+            // die ganze eingabe durchgehen und Wörter zählen und mit dem Wortschatz vergleichen
+            for (var i = 0; i < eingabe.length; i++) {
+                //console.log ("Zeichen Code: " + eingabe.charCodeAt(i));
+        
+                
+                // Testen ob Worttrennzeichen eingegeben wurde (Space = 32, Return = 10)
+                if (eingabe.charCodeAt(i) == 10 || eingabe.charCodeAt(i) == 32) {
+                    //console.log ("Trennzeichen eingegeben");
+                    WortTrenn1 = WortTrenn2;
+                    WortTrenn2 = i;
+                    
+                    // Wörter bestimmen durch Trennzeichen
+                    TestWort = eingabe.substring(WortTrenn1,WortTrenn2);          
+
+                    // Satzzeichen entfernen
+                    TestWortOhne = TestWort.replace(/[.,;!?:"']+/,"") + " ";
+                    //console.log ( "TestWortOhne: " + TestWortOhne);
+
+                    //Wörter zählen
+                    if (TestWortOhne.search(/\S\b/) > 0) {  // \S: non-whitespace \b at beginning/end 
+                        WortAnzahl += 1; 
+                        // Lange Wörter richtig zählen
+                        var TestWortOhneTrim = TestWortOhne.trim();
+                        //console.log ("TestWortOhneTrim: " + TestWortOhneTrim);
+                        if (TestWortOhneTrim.length > 6) {
+                            WortLange += 1;
+                        }
+                        //console.log ("WortAnzahl: " + WortAnzahl);
+                    }
+
+                    // suchen
+                    Suche = wortschatz.search(TestWortOhne.toLowerCase());
+                    //OK Suche = wortschatz.indexOf(TestWortOhne.toLowerCase());
+                    //console.log ("Suche: " + Suche);
+
+                    // Ausgabe
+                    if (Suche == -1 ) {
+                        // nicht im Wortschatz
+                        AusgabeWort += "<mark>" + TestWort + "</mark>";
+                        //console.log ("AusgabeWort: " + AusgabeWort);
+                        
+                    } else {
+                        // im Wortschatz
+                        AusgabeWort += TestWort;
+                        //console.log ("AusgabeWort: " + AusgabeWort);
+                    }
+
+                    // wenn Return, dann gib eine neue Linie aus
+                    if (eingabe.charCodeAt(i) == 10) {
+                        AusgabeWort += "<br>";
+                        WortTrenn2 = WortTrenn2 + 1;
+                    }
+                    
+                } // Ende if
+                
+            } // Ende for
+
+            // Anzahl Sätze zählen
+            var SatzZeichenArray = eingabe.match (/[.!?:]/g);
+            //console.log ("SatzZeichenArray: " + SatzZeichenArray);
+            var SatzAnzahl = 0;
+            if (SatzZeichenArray != null) {
+                var SatzAnzahl = SatzZeichenArray.length;
+            }
+
+            // Lesbarkeitsindex berechnen
+            var Lesbarkeit = " ";
+            var lix = Math.round(WortAnzahl/SatzAnzahl + WortLange*100/WortAnzahl);            
+
+            if (lix <= 30) {
+                Lesbarkeit = "sehr einfach (Kinderbücher)";
+            } else if (lix <= 40 && lix > 30) {
+                Lesbarkeit = "einfach (Jugendbücher)";            
+            } else if (lix <= 50 && lix > 40) {
+                Lesbarkeit = "mittel (Romane)";
+            } else if (lix <= 60 && lix > 50) {
+                Lesbarkeit = "schwer (Sachbücher)";                
+            } else if (lix > 60) {
+                Lesbarkeit = "sehr schwer (Fachbücher)";
+            }
+            //console.log ("Lesbarkeit: " + Lesbarkeit + " lix: " + lix);
+
+            var ZahlenAusgabe = "<b>Anzahl Wörter:</b> " + WortAnzahl +
+                                ", <b>Anzahl Sätze:</b> " + SatzAnzahl +
+                                ", <b>Lesbarkeit:</b> " + lix + " &#8680; " + Lesbarkeit;
+
+            // Ausgabe
+            document.getElementById("ausgabe").innerHTML = AusgabeWort; 
+            document.getElementById("Zahlen").innerHTML = ZahlenAusgabe; 
+            
+            return;
+        } // Ende function
+
+
+
+
+// ============================================================================
+        // Letzte Ausgabe nach Neueingabe löschen
+        function löschen () 
+                {
+                    document.getElementById("textfeld").value = "";
+                    document.getElementById("ausgabe").innerHTML = "";
+                    document.getElementById("Zahlen").innerHTML = ""; 
+                    document.getElementById("Wortschatz").innerHTML = "";
+                    document.getElementById("hilfe").innerHTML = HilfeText; 
+                    document.getElementById("textfeld").focus();    
+                    return;
+                }
+          
+// =========================================================================== 
+
+        
+    </script>
+
+  </body>
+
+</html>
